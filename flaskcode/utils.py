@@ -31,7 +31,7 @@ def write_file(content, filepath, chunk_size=None):
     if isinstance(content, string_types):
         content_io = StringIO()
         content_io.write(content)
-        with open(filepath, 'w') as dest:
+        with open(filepath, 'w', encoding='utf-8-sig') as dest:
             content_io.seek(0)
             try:
                 shutil.copyfileobj(content_io, dest, chunk_size or DEFAULT_CHUNK_SIZE)
